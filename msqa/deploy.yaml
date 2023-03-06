@@ -42,7 +42,7 @@ spec:
       containers:
       - env:
         - name: GREET
-          value: Hello
+          value: msqa
         image: 289208114389.dkr.ecr.us-east-1.amazonaws.com/picpay-dev/ms-gatekeeper-new-kong:1.0
         imagePullPolicy: IfNotPresent
         livenessProbe:
@@ -51,7 +51,7 @@ spec:
             path: /
             port: 8000
             scheme: HTTP
-          initialDelaySeconds: 90
+          initialDelaySeconds: 5
           periodSeconds: 10
           successThreshold: 1
           timeoutSeconds: 5
@@ -65,7 +65,7 @@ spec:
             path: /
             port: 8000
             scheme: HTTP
-          initialDelaySeconds: 90
+          initialDelaySeconds: 5
           periodSeconds: 10
           successThreshold: 1
           timeoutSeconds: 5
