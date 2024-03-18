@@ -1,7 +1,9 @@
-from flask import Flask, jsonify, request
+from time import sleep
 from os import getenv
 
-_VERSION = '1.2.0'
+from flask import Flask, jsonify, request
+
+_VERSION = '1.3.0'
 
 greetings = getenv('GREET', 'Hello')
 default_name = getenv('DEFAULT_NAME', 'Stranger')
@@ -29,3 +31,9 @@ def parameter():
 def parameter():
     name = request.args.get('name', default_name)
     return jsonify({'message': f'{greetings}, {name}'})
+
+
+@app.route("/delay/<int:delay>")
+def parameter(delay):
+    sleep(delay)
+    return jsonify({'message': f'{greetings} {default_name}, after {delay} milliseconds'})
