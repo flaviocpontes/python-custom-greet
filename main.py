@@ -1,7 +1,7 @@
 from flask import Flask, jsonify
 from os import getenv
 
-_VERSION = '1.1.0'
+_VERSION = '1.1.1'
 
 greetings = getenv('GREET', 'Hello')
 
@@ -13,6 +13,6 @@ def greet():
     return jsonify({'message': greetings})
 
 
-@app.route("/<name>")
+@app.route("/name/<name>")
 def parameter(name):
     return jsonify({'message': f'{greetings}, {name}'})
