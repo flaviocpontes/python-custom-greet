@@ -3,7 +3,7 @@ from os import getenv
 
 from flask import Flask, jsonify, request
 
-_VERSION = '1.3.0'
+_VERSION = '1.3.1'
 
 greetings = getenv('GREET', 'Hello')
 default_name = getenv('DEFAULT_NAME', 'Stranger')
@@ -22,18 +22,18 @@ def parameter(name):
 
 
 @app.route("/header")
-def parameter():
+def header():
     name = request.headers.get('name', default_name)
     return jsonify({'message': f'{greetings}, {name}'})
 
 
 @app.route("/query")
-def parameter():
+def query():
     name = request.args.get('name', default_name)
     return jsonify({'message': f'{greetings}, {name}'})
 
 
 @app.route("/delay/<int:delay>")
-def parameter(delay):
+def delayed(delay):
     sleep(delay)
     return jsonify({'message': f'{greetings} {default_name}, after {delay} milliseconds'})
