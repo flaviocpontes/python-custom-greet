@@ -8,4 +8,6 @@ The preferred way is to use it dockerized, setting the GREET environment variabl
 
 ## Endpoints
 - `/` -> Returns the default greeting
-- `/<name>` -> Return greeting to the named entity by the `name` parameter 
+- `/<name>` -> Return greeting to the named entity by the `name` parameter
+- `/header` -> Return greeting to the named entity by the `name` header
+- `/query` -> Return greeting to the named entity by the `name` query parameter
